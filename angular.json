@@ -1,9 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-example": {
+    "lab2-angular-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-example",
+            "outputPath": "dist/lab2-angular-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -24,9 +24,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",  
+              "node_modules/popper.js/dist/umd/popper.min.js",  
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -62,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-example:build"
+            "browserTarget": "lab2-angular-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-example:build:production"
+              "browserTarget": "lab2-angular-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-example:build"
+            "browserTarget": "lab2-angular-app:build"
           }
         },
         "test": {
@@ -110,15 +115,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-example:serve"
+            "devServerTarget": "lab2-angular-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular-example:serve:production"
+              "devServerTarget": "lab2-angular-app:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "angular-example"
+    }
+  },
+  "defaultProject": "lab2-angular-app",
+  "cli": {
+    "analytics": false
+  }
 }
